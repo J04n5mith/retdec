@@ -4407,7 +4407,20 @@ void Capstone2LlvmIrTranslatorX86_impl::translateFxch(cs_insn* i, cs_x86* xi, ll
  */
 void Capstone2LlvmIrTranslatorX86_impl::translateFxam(cs_insn* i, cs_x86* xi, llvm::IRBuilder<>& irb)
 {
-	// TODO
+    // Semantic to complicated? 
+    // Sets flags X87_REG_C3, X87_REG_C2 and X87_REG_C0 for Class, 
+    // and X87_REG_C1 for sign of number
+    /* 
+     * CASE (classOf(top.Value)) OF
+     *      Unsupported: C3, C2, C0 <- 000;
+     *      NaN: C3, C2, C0 <- 001;
+     *      Normal: C3, C2, C0 <- 010;
+     *      Infinity: C3, C2, C0 <- 011;
+     *      Zero: C3, C2, C0 <- 100;
+     *      Empty: C3, C2, C0 <- 101;
+     *      Denormal: C3, C2, C0 <- 110;
+     *ESAC;
+    */
 }
 
 /**
@@ -4415,7 +4428,7 @@ void Capstone2LlvmIrTranslatorX86_impl::translateFxam(cs_insn* i, cs_x86* xi, ll
  */
 void Capstone2LlvmIrTranslatorX86_impl::translateFnstcw(cs_insn* i, cs_x86* xi, llvm::IRBuilder<>& irb)
 {
-	// TODO
+    //TODO: no FPU control word register ?
 }
 
 /**
@@ -4423,7 +4436,8 @@ void Capstone2LlvmIrTranslatorX86_impl::translateFnstcw(cs_insn* i, cs_x86* xi, 
  */
 void Capstone2LlvmIrTranslatorX86_impl::translateFnstsw(cs_insn* i, cs_x86* xi, llvm::IRBuilder<>& irb)
 {
-	// TODO
+        auto* statusWords = loadRegister(X86_REG_FPSW, irb);
+        storeOp(xi->operands[0], statusWords, irb);
 }
 
 /**
