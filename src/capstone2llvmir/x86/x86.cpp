@@ -4703,7 +4703,7 @@ void Capstone2LlvmIrTranslatorX86_impl::translateF2xm1(cs_insn* i, cs_x86* xi, l
  * @param xi
  * @param irb
  */
-void Capstone2LlvmIrTranslatorX86_impl::translateFbld(cs_insn* i, cs_x86* xi, llvm::IRBuilder& irb)
+void Capstone2LlvmIrTranslatorX86_impl::translateFbld(cs_insn* i, cs_x86* xi, llvm::IRBuilder<>& irb)
 {
     //TODO:
 }
@@ -4714,7 +4714,7 @@ void Capstone2LlvmIrTranslatorX86_impl::translateFbld(cs_insn* i, cs_x86* xi, ll
  * @param xi
  * @param irb
  */
-void Capstone2LlvmIrTranslatorX86_impl::translateFbstp(cs_insn* i, cs_x86* xi, llvm::IRBuilder& irb)
+void Capstone2LlvmIrTranslatorX86_impl::translateFbstp(cs_insn* i, cs_x86* xi, llvm::IRBuilder<>& irb)
 {
     //TODO:
 }
@@ -4725,29 +4725,20 @@ void Capstone2LlvmIrTranslatorX86_impl::translateFbstp(cs_insn* i, cs_x86* xi, l
  * @param xi
  * @param irb
  */
-void Capstone2LlvmIrTranslatorX86_impl::translateFnclex(cs_insn* i, cs_x86* xi, llvm::IRBuilder& irb)
+void Capstone2LlvmIrTranslatorX86_impl::translateFnclex(cs_insn* i, cs_x86* xi, llvm::IRBuilder<>& irb)
 {
     //TODO:
 }
 
 /**
- * X86_INS_FNCLEX
+ * X86_INS_FCMOVCC: 
+ * X86_INS_FCMOVB, X86_INS_FCMOVE, X86_INS_FCMOVBE, X86_INS_FCMOVU,
+ * X86_INS_FCMOVNB, X86_INS_FCMOVNE, X86_INS_FCMOVNBE, X86_INS_FCMOVNU
  * @param i
  * @param xi
  * @param irb
  */
-void Capstone2LlvmIrTranslatorX86_impl::translateFnclex(cs_insn* i, cs_x86* xi, llvm::IRBuilder& irb)
-{
-    //TODO:
-}
-
-/**
- * X86_INS_FCMOVCC
- * @param i
- * @param xi
- * @param irb
- */
-void Capstone2LlvmIrTranslatorX86_impl::translateFcmovcc(cs_insn* i, cs_x86* xi, llvm::IRBuilder& irb)
+void Capstone2LlvmIrTranslatorX86_impl::translateFcmovcc(cs_insn* i, cs_x86* xi, llvm::IRBuilder<>& irb)
 {
     //TODO:
 }
@@ -4758,7 +4749,7 @@ void Capstone2LlvmIrTranslatorX86_impl::translateFcmovcc(cs_insn* i, cs_x86* xi,
  * @param xi
  * @param irb
  */
-void Capstone2LlvmIrTranslatorX86_impl::translateFfree(cs_insn* i, cs_x86* xi, llvm::IRBuilder& irb)
+void Capstone2LlvmIrTranslatorX86_impl::translateFfree(cs_insn* i, cs_x86* xi, llvm::IRBuilder<>& irb)
 {
     //TODO:
 }
@@ -4769,7 +4760,7 @@ void Capstone2LlvmIrTranslatorX86_impl::translateFfree(cs_insn* i, cs_x86* xi, l
  * @param xi
  * @param irb
  */
-void Capstone2LlvmIrTranslatorX86_impl::translateFisttp(cs_insn* i, cs_x86* xi, llvm::IRBuilder& irb)
+void Capstone2LlvmIrTranslatorX86_impl::translateFisttp(cs_insn* i, cs_x86* xi, llvm::IRBuilder<>& irb)
 {
     //TODO:
 }
@@ -4780,7 +4771,7 @@ void Capstone2LlvmIrTranslatorX86_impl::translateFisttp(cs_insn* i, cs_x86* xi, 
  * @param xi
  * @param irb
  */
-void Capstone2LlvmIrTranslatorX86_impl::translateFpatan(cs_insn* i, cs_x86* xi, llvm::IRBuilder& irb)
+void Capstone2LlvmIrTranslatorX86_impl::translateFpatan(cs_insn* i, cs_x86* xi, llvm::IRBuilder<>& irb)
 {
     //TODO:
 }
@@ -4791,7 +4782,7 @@ void Capstone2LlvmIrTranslatorX86_impl::translateFpatan(cs_insn* i, cs_x86* xi, 
  * @param xi
  * @param irb
  */
-void Capstone2LlvmIrTranslatorX86_impl::translateFprem(cs_insn* i, cs_x86* xi, llvm::IRBuilder& irb)
+void Capstone2LlvmIrTranslatorX86_impl::translateFprem(cs_insn* i, cs_x86* xi, llvm::IRBuilder<>& irb)
 {
     //TODO:
 }
@@ -4802,7 +4793,7 @@ void Capstone2LlvmIrTranslatorX86_impl::translateFprem(cs_insn* i, cs_x86* xi, l
  * @param xi
  * @param irb
  */
-void Capstone2LlvmIrTranslatorX86_impl::translateFprem1(cs_insn* i, cs_x86* xi, llvm::IRBuilder& irb)
+void Capstone2LlvmIrTranslatorX86_impl::translateFprem1(cs_insn* i, cs_x86* xi, llvm::IRBuilder<>& irb)
 {
     //TODO:
 }
@@ -4813,7 +4804,7 @@ void Capstone2LlvmIrTranslatorX86_impl::translateFprem1(cs_insn* i, cs_x86* xi, 
  * @param xi
  * @param irb
  */
-void Capstone2LlvmIrTranslatorX86_impl::translateFptan(cs_insn* i, cs_x86* xi, llvm::IRBuilder& irb)
+void Capstone2LlvmIrTranslatorX86_impl::translateFptan(cs_insn* i, cs_x86* xi, llvm::IRBuilder<>& irb)
 {
     //TODO
 }
@@ -4824,7 +4815,7 @@ void Capstone2LlvmIrTranslatorX86_impl::translateFptan(cs_insn* i, cs_x86* xi, l
  * @param xi
  * @param irb
  */
-void Capstone2LlvmIrTranslatorX86_impl::translateFrstor(cs_insn* i, cs_x86* xi, llvm::IRBuilder& irb)
+void Capstone2LlvmIrTranslatorX86_impl::translateFrstor(cs_insn* i, cs_x86* xi, llvm::IRBuilder<>& irb)
 {
     //TODO:
 }
@@ -4835,7 +4826,7 @@ void Capstone2LlvmIrTranslatorX86_impl::translateFrstor(cs_insn* i, cs_x86* xi, 
  * @param xi
  * @param irb
  */
-void Capstone2LlvmIrTranslatorX86_impl::translateFnsave(cs_insn* i, cs_x86* xi, llvm::IRBuilder& irb)
+void Capstone2LlvmIrTranslatorX86_impl::translateFnsave(cs_insn* i, cs_x86* xi, llvm::IRBuilder<>& irb)
 {
     //TODO:
 }
@@ -4846,7 +4837,7 @@ void Capstone2LlvmIrTranslatorX86_impl::translateFnsave(cs_insn* i, cs_x86* xi, 
  * @param xi
  * @param irb
  */
-void Capstone2LlvmIrTranslatorX86_impl::translateFscale(cs_insn* i, cs_x86* xi, llvm::IRBuilder& irb)
+void Capstone2LlvmIrTranslatorX86_impl::translateFscale(cs_insn* i, cs_x86* xi, llvm::IRBuilder<>& irb)
 {
     //TODO:
 }
@@ -4857,7 +4848,7 @@ void Capstone2LlvmIrTranslatorX86_impl::translateFscale(cs_insn* i, cs_x86* xi, 
  * @param xi
  * @param irb
  */
-void Capstone2LlvmIrTranslatorX86_impl::translateFxstor(cs_insn* i, cs_x86* xi, llvm::IRBuilder& irb)
+void Capstone2LlvmIrTranslatorX86_impl::translateFxstor(cs_insn* i, cs_x86* xi, llvm::IRBuilder<>& irb)
 {
     //TODO:
 }
@@ -4868,7 +4859,7 @@ void Capstone2LlvmIrTranslatorX86_impl::translateFxstor(cs_insn* i, cs_x86* xi, 
  * @param xi
  * @param irb
  */
-void Capstone2LlvmIrTranslatorX86_impl::translateFxstor64(cs_insn* i, cs_x86* xi, llvm::IRBuilder& irb)
+void Capstone2LlvmIrTranslatorX86_impl::translateFxstor64(cs_insn* i, cs_x86* xi, llvm::IRBuilder<>& irb)
 {
     //TODO:
 }
@@ -4879,7 +4870,7 @@ void Capstone2LlvmIrTranslatorX86_impl::translateFxstor64(cs_insn* i, cs_x86* xi
  * @param xi
  * @param irb
  */
-void Capstone2LlvmIrTranslatorX86_impl::translateFxsave(cs_insn* i, cs_x86* xi, llvm::IRBuilder& irb)
+void Capstone2LlvmIrTranslatorX86_impl::translateFxsave(cs_insn* i, cs_x86* xi, llvm::IRBuilder<>& irb)
 {
     //TODO
 }
@@ -4890,7 +4881,7 @@ void Capstone2LlvmIrTranslatorX86_impl::translateFxsave(cs_insn* i, cs_x86* xi, 
  * @param xi
  * @param irb
  */
-void Capstone2LlvmIrTranslatorX86_impl::translateFxsave64(cs_insn* i, cs_x86* xi, llvm::IRBuilder& irb)
+void Capstone2LlvmIrTranslatorX86_impl::translateFxsave64(cs_insn* i, cs_x86* xi, llvm::IRBuilder<>& irb)
 {
     //TODO
 }
@@ -4901,7 +4892,7 @@ void Capstone2LlvmIrTranslatorX86_impl::translateFxsave64(cs_insn* i, cs_x86* xi
  * @param xi
  * @param irb
  */
-void Capstone2LlvmIrTranslatorX86_impl::translateFxtract(cs_insn* i, cs_x86* xi, llvm::IRBuilder& irb)
+void Capstone2LlvmIrTranslatorX86_impl::translateFxtract(cs_insn* i, cs_x86* xi, llvm::IRBuilder<>& irb)
 {
     //TODO:
 }
@@ -4912,7 +4903,7 @@ void Capstone2LlvmIrTranslatorX86_impl::translateFxtract(cs_insn* i, cs_x86* xi,
  * @param xi
  * @param irb
  */
-void Capstone2LlvmIrTranslatorX86_impl::translateFyl2x(cs_insn* i, cs_x86* xi, llvm::IRBuilder& irb)
+void Capstone2LlvmIrTranslatorX86_impl::translateFyl2x(cs_insn* i, cs_x86* xi, llvm::IRBuilder<>& irb)
 {
     //TODO:
 }
@@ -4923,7 +4914,7 @@ void Capstone2LlvmIrTranslatorX86_impl::translateFyl2x(cs_insn* i, cs_x86* xi, l
  * @param xi
  * @param irb
  */
-void Capstone2LlvmIrTranslatorX86_impl::translateFyl2xp1(cs_insn* i, cs_x86* xi, llvm::IRBuilder& irb)
+void Capstone2LlvmIrTranslatorX86_impl::translateFyl2xp1(cs_insn* i, cs_x86* xi, llvm::IRBuilder<>& irb)
 {
     //TODO:
 }
