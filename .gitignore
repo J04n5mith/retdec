@@ -1,3 +1,4 @@
+/.vscode*/
 /build*/
 src/capstone2llvmir/x86/x86.cpp
 CMakeCache.txt

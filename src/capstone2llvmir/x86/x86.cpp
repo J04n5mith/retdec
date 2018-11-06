@@ -4705,7 +4705,11 @@ void Capstone2LlvmIrTranslatorX86_impl::translateF2xm1(cs_insn* i, cs_x86* xi, l
  */
 void Capstone2LlvmIrTranslatorX86_impl::translateFbld(cs_insn* i, cs_x86* xi, llvm::IRBuilder<>& irb)
 {
-    //TODO:
+	std::tie(op0, top) = loadOpFloatingUnaryTop(i, xi, irb);
+
+	x87DecTop(irb, top);
+
+	storeX87DataReg(irb, top, op0);
 }
 
 /**
@@ -4740,7 +4744,23 @@ void Capstone2LlvmIrTranslatorX86_impl::translateFnclex(cs_insn* i, cs_x86* xi, 
  */
 void Capstone2LlvmIrTranslatorX86_impl::translateFcmovcc(cs_insn* i, cs_x86* xi, llvm::IRBuilder<>& irb)
 {
-    //TODO:
+	llvm::Value* cond = nullptr;
+	switch(i->id)
+	{
+		case X86_INS_FCMOVBE: cond = generateCcBE(irb); break;
+		case X86_INS_FCMOVB:  cond = generateCcB(irb); break;
+		case X86_INS_FCMOVE:  cond = generateCcE(irb); break;
+		case X86_INS_FCMOVNB: cond = generateCcAE(irb); break;
+		case X86_INS_FCMOVNBE: cond = generateCcA(irb); break;
+		case X86_INS_FCMOVNE: cond = generateCcNE(irb); break;
+		case X86_INS_FCMOVNU: cond = generateCcNP(irb); break;
+		case X86_INS_FCMOVU:  cond = generateCcP(irb); break;
+		default: throw Capstone2LlvmIrError("Unhandled insn ID in translateSetCc().");
+	}
+    
+	std::tie(op0, op1) = loadOpBinary(xi, irb, eOpConv::THROW);
+	auto* val = irb.CreateSelect(cond, op1, op0);
+	storeOp(xi->operands[0], val, irb);
 }
 
 /**
@@ -4751,6 +4771,9 @@ void Capstone2LlvmIrTranslatorX86_impl::translateFcmovcc(cs_insn* i, cs_x86* xi,
  */
 void Capstone2LlvmIrTranslatorX86_impl::translateFfree(cs_insn* i, cs_x86* xi, llvm::IRBuilder<>& irb)
 {
+	llvm::Value* top = loadX87Top(irb);
+
+	
     //TODO:
 }
 
